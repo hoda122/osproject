@@ -12,6 +12,17 @@ jobs:
 
       - name: "login to Docker Hub"
         run: echo hoda
+
+      - name: "login to Docker Hub"
+        run: docker login --username ${{secrets.DOCKER _USERNAME}} --password ${{secrets.DOCKER_PASSWORD}}
+      
+      - name: "Building docker image"
+        run: docker build -t  ${{secrets.DOCKER _USERNAME}}/project1 .
+      
+      - name: "Pushing to docker hub"
+        run: docker push ${{secrets.DOCKER _USERNAME}}/project1
+
+  
       
     
   
